@@ -24,7 +24,7 @@ public:
 	
 	Game();
 
-#pragma region GAME METHODS
+	#pragma region GAME METHODS
 	
 	void Init();
 	void Loop();
@@ -33,12 +33,12 @@ public:
 	void DestroyTrail(int idTrail);
 
 #pragma endregion
-#pragma region GETTER/SETTER
+	#pragma region GETTER/SETTER
 
 	b2World& GetWorld() { return m_world; }; 
 
 #pragma endregion
-#pragma region CONVERSION METHODS
+	#pragma region CONVERSION METHODS
 
 	static b2Vec2 pixelsToMeters(sf::Vector2f pixels);
 	static b2Vec2 pixelsToMeters(sf::Vector2u pixels);
@@ -50,7 +50,7 @@ public:
 
 private:
 
-#pragma region Physical
+	#pragma region Physical
 
 	// Physical
 	b2Vec2 m_gravity;
@@ -67,7 +67,7 @@ private:
 	Character m_character;
 
 #pragma endregion
-#pragma region Graphical
+	#pragma region Graphical
 
 	//Window
 	sf::RenderWindow m_window;
@@ -97,7 +97,7 @@ private:
 	sf::Text m_gameOverText;
 
 #pragma endregion
-#pragma region GameVariables
+	#pragma region GameVariables
 
 	//Higher the levelDuration is, longer and easier the game will be.
 	float m_levelDuration = 0.25f;

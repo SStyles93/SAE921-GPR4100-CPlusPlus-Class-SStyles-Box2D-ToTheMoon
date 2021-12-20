@@ -12,7 +12,7 @@ public:
 	
 	explicit Character(Game& game);
 
-#pragma region GETTER/SETTER
+	#pragma region GETTER/SETTER
 
 	sf::Sprite GetMainSprite() {return m_mainSprite; };
 	sf::Sprite SetMainSprite(sf::Sprite sprite) { m_mainSprite = sprite; };
@@ -20,8 +20,8 @@ public:
 	sf::Sprite SetSecondSprite(sf::Sprite sprite) { m_secondSprite = sprite; };
 	float GetThrusterAlphaValue() { return m_secondSpriteAlphaValue; };
 
-#pragma endregion
-#pragma region GAME METHODS
+	#pragma endregion
+	#pragma region GAME METHODS
 	
 	void Init(sf::Vector2u winsize);
 	void Update();
@@ -40,11 +40,11 @@ public:
 	void SetDamage(float damage);
 	float GetHealth();
 
-#pragma endregion
+	#pragma endregion
 
 protected:
 
-#pragma region SMFL
+	#pragma region SMFL
 
 	//Ship
 	sf::Texture m_mainTexture;
@@ -60,19 +60,19 @@ protected:
 
 	float m_secondSpriteAlphaValue = 0;
 	float m_thirdSpriteAlphaValue = 0;
-#pragma endregion
-#pragma region BOX2D
+	#pragma endregion
+	#pragma region BOX2D
 
 	b2Body* m_body = nullptr;
 	Game& m_game;
 	UserData* m_userData = new UserData(UserDataType::ROCKET);
 
-#pragma endregion
-#pragma region CHARACTERISTICS
+	#pragma endregion
+	#pragma region CHARACTERISTICS
 
 	//Life 
 	float m_health = 100;
 
-#pragma endregion
+	#pragma endregion
 	
 };

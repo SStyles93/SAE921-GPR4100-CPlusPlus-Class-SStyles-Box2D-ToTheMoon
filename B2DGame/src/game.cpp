@@ -160,6 +160,10 @@ void Game::Loop()
 			// Windows events -------------------------------------------------------------------------------
 			if (event.type == sf::Event::Closed)
 			{
+				//save score to file and close it
+				outFile << m_score << std::endl;
+				outFile.close();
+				//close Window
 				m_window.close();
 				return;
 			}
@@ -202,8 +206,9 @@ void Game::Loop()
 					m_character.Move(b2Vec2(0.0f, -20.0f));
 				}
 			}
-			else 
+			else if (m_gameOver)
 			{
+				//save score to file and close it
 				outFile << m_score << std::endl;
 				outFile.close();
 			}

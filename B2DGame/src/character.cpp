@@ -19,7 +19,7 @@ Character::Character(Game& game) : m_game(game)
 
 void Character::Init(sf::Vector2u winsize)
 {
-#pragma region SFML
+	#pragma region SFML
 
 	//Define SFML elements
 	m_mainTexture.loadFromFile(m_mainSpriteAdress);
@@ -38,8 +38,8 @@ void Character::Init(sf::Vector2u winsize)
 	m_thirdSprite.setPosition(0, 125);
 	SetSpriteAlpha(m_thirdSprite, 0);
 
-#pragma endregion
-#pragma region BOX2D
+	#pragma endregion
+	#pragma region BOX2D
 
 	//Define Box2D elements
 	b2BodyDef bodyDef;
@@ -67,7 +67,7 @@ void Character::Init(sf::Vector2u winsize)
 	playerFixtureDef.friction = 0.0f;
 	m_body->CreateFixture(&playerFixtureDef);
 
-#pragma endregion
+	#pragma endregion
 }
 void Character::Update()
 {
@@ -89,7 +89,7 @@ void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const
 #pragma endregion
 #pragma region OBJECT METHODS
 
-#pragma region Physical
+	#pragma region Physical
 
 //Applies a given force to the m_body
 void Character::Move(b2Vec2 b2Vec)
@@ -106,8 +106,8 @@ void Character::Move(b2Vec2 b2Vec)
 	}
 }
 
-#pragma endregion
-#pragma region Graphical
+	#pragma endregion
+	#pragma region Graphical
 
 //Sets the Alpha Value of a references sprite
 void Character::SetSpriteAlpha(sf::Sprite& sprite, float alphaValue) 
@@ -138,8 +138,8 @@ void Character::ResetColor()
 	m_mainSprite.setColor(sf::Color(255, 255, 255, 255));
 }
 
-#pragma endregion
-#pragma region Stats
+	#pragma endregion
+	#pragma region Stats
 
 //Returns the characters health
 float Character::GetHealth()
@@ -154,6 +154,6 @@ void Character::SetDamage(float damage)
 	
 }
 
-#pragma endregion
+	#pragma endregion
 
 #pragma endregion

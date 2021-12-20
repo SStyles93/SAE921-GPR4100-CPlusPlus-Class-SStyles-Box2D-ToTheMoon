@@ -12,7 +12,7 @@ public:
 
 	Trail(b2World& world, sf::Vector2f pos, float scale);
 
-#pragma region GETTER/SETTER
+	#pragma region GETTER/SETTER
 
 	long GetLocalId();
 	void SetIsDead();
@@ -22,17 +22,17 @@ public:
 	sf::Sprite& GetSprite3() { return m_sprite3; };
 	b2Body* GetBody() { return m_body; };
 
-#pragma endregion
-#pragma region METHODS
+	#pragma endregion
+	#pragma region METHODS
 
 	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-#pragma endregion
+	#pragma endregion
 
 protected:
 
-#pragma region SFML
+	#pragma region SFML
 
 	//SPRITE & TEXTURE
 	sf::Sprite m_sprite1;
@@ -41,8 +41,8 @@ protected:
 	std::string m_spriteAdress2;
 	sf::Sprite m_sprite3;
 
-#pragma endregion
-#pragma region BOX2D
+	#pragma endregion
+	#pragma region BOX2D
 
 	//B2D
 	b2Body* m_body = nullptr;
@@ -51,7 +51,7 @@ protected:
 	static long m_localTrailId;
 	static long GetGlobalId();
 
-#pragma endregion
+	#pragma endregion
 
 	bool m_isDead = false;
 
