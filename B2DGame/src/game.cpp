@@ -37,6 +37,14 @@ Game::Game() :
 	m_gameOverText.setFont(m_font);
 	m_gameOverText.setCharacterSize(80);
 	m_gameOverText.setFillColor(sf::Color::Red);
+	//TEXT - StartText
+	m_startText.setFont(m_font);
+	m_startText.setCharacterSize(60);
+	m_startText.setFillColor(sf::Color::Red);
+	//TEXT - RestartText
+	m_restartText.setFont(m_font);
+	m_restartText.setCharacterSize(60);
+	m_restartText.setFillColor(sf::Color::Red);
 
 	#pragma endregion
 	#pragma region StartScreenSprite
@@ -129,6 +137,8 @@ void Game::Init()
 		m_scoreText.setPosition(sf::Vector2f(m_window.getSize().x * 0.025f, 0));
 		m_lifeText.setPosition(sf::Vector2f(m_window.getSize().x * 0.7f, 0));
 		m_gameOverText.setPosition(sf::Vector2f(m_window.getSize().x * 0.3f, m_window.getSize().y * 0.5f));
+		m_startText.setPosition(sf::Vector2f(m_window.getSize().x * 0.1f, m_window.getSize().y * 0.8f));
+		m_restartText.setPosition(sf::Vector2f(m_window.getSize().x * 0.1f, m_window.getSize().y * 0.8f));
 
 #pragma endregion
 	
@@ -209,6 +219,8 @@ void Game::Loop()
 			//Draw score
 			m_scoreText.setString("Your best score is : " + std::to_string((int)m_highestScore) + " s");
 			m_window.draw(m_scoreText);
+			m_startText.setString("Press [SPACE] to Start the game");
+			m_window.draw(m_startText);
 
 			m_window.draw(m_startScreenSprite);
 
@@ -489,6 +501,8 @@ void Game::Loop()
 			{
 				m_gameOverText.setString("Game Over");
 				m_window.draw(m_gameOverText);
+				m_restartText.setString("Press [SPACE] to Restart the game");
+				m_window.draw(m_restartText);
 			}
 
 			//Draw Text

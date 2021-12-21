@@ -94,6 +94,8 @@ private:
 	sf::Text m_scoreText;
 	sf::Text m_lifeText;
 	sf::Text m_gameOverText;
+	sf::Text m_startText;
+	sf::Text m_restartText;
 
 	//Start Screen
 	sf::Texture m_startScreenTexture;
@@ -103,7 +105,7 @@ private:
 	#pragma region GameVariables
 
 	//Higher the levelDuration is, longer and easier the game will be.
-	float m_levelDuration = 0.25f;
+	float m_levelDuration = 0.5f;
 	
 	//Defines the range [min - max] of the random trail scaling
 	float m_minTrailScaleValue = 1.0f;
