@@ -14,6 +14,9 @@ public:
 
 	TrailManager(b2World& world);
 
+	//GETTER
+	std::vector<Trail> GetTrails() { return m_trails; };
+
 #pragma region METHODS
 
 	// DRAWABLE OVERRIDES

@@ -10,7 +10,7 @@
 Character::Character(Game& game) : m_game(game)
 {
 	m_mainSpriteAdress = "data/sprites/capsule1.png";
-	m_secondSpriteAdress = "data/sprites/capsuleSpeed1.png"; 
+	m_secondSpriteAdress = "data/sprites/capsuleSpeed1.png";
 	m_thirdSpriteAdress = "data/sprites/capsuleTrail.png";
 }
 
@@ -21,17 +21,19 @@ void Character::Init(sf::Vector2u winsize)
 {
 	#pragma region SFML
 
-	//Define SFML elements
+	//Set sprite & texture [Capsule]
 	m_mainTexture.loadFromFile(m_mainSpriteAdress);
 	m_mainSprite.setTexture(m_mainTexture);
 	m_mainSprite.setOrigin(sf::Vector2f(m_mainTexture.getSize().x * 0.5f, m_mainTexture.getSize().y * 0.5f));
-
+	
+	//Set sprite & texture [Speed effect]
 	m_secondTexture.loadFromFile(m_secondSpriteAdress);
 	m_secondSprite.setTexture(m_secondTexture);
 	m_secondSprite.setOrigin(sf::Vector2f(m_mainTexture.getSize().y * 0.5f, m_mainTexture.getSize().x * 0.5f));
 	m_secondSprite.setPosition(0, 0);
 	SetSpriteAlpha(m_secondSprite, 0);
 
+	//Set sprite & texture [Speed trail]
 	m_thirdTexture.loadFromFile(m_thirdSpriteAdress);
 	m_thirdSprite.setTexture(m_thirdTexture);
 	m_thirdSprite.setOrigin(sf::Vector2f(m_mainTexture.getSize().y * 0.5f, m_mainTexture.getSize().x * 0.5f));
@@ -141,11 +143,6 @@ void Character::ResetColor()
 	#pragma endregion
 	#pragma region Stats
 
-//Returns the characters health
-float Character::GetHealth()
-{
-	return m_health;
-}
 //Lowers the characters health
 void Character::SetDamage(float damage)
 {

@@ -9,16 +9,25 @@ class Game;
 class Character : public sf::Drawable, public sf::Transformable
 {
 public:
-	
-	explicit Character(Game& game);
 
-	#pragma region GETTER/SETTER
+	Character(Game& game);
 
-	sf::Sprite GetMainSprite() {return m_mainSprite; };
-	sf::Sprite SetMainSprite(sf::Sprite sprite) { m_mainSprite = sprite; };
+#pragma region GETTER/SETTER
+
+	sf::Sprite GetMainSprite() { return m_mainSprite; };
+	void SetMainSprite(sf::Sprite sprite) { m_mainSprite = sprite; };
+
 	sf::Sprite GetSecondSprite() { return m_secondSprite; };
-	sf::Sprite SetSecondSprite(sf::Sprite sprite) { m_secondSprite = sprite; };
+	void SetSecondSprite(sf::Sprite sprite) { m_secondSprite = sprite; };
+
+	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
+
 	float GetThrusterAlphaValue() { return m_secondSpriteAlphaValue; };
+
+	float GetHealth(){return m_health; };
+	void SetHealth(float health) { m_health = health; };
+
+	b2Body* GetBody() { return m_body; };
 
 	#pragma endregion
 	#pragma region GAME METHODS
@@ -29,16 +38,11 @@ public:
 
 	void Move(b2Vec2 b2Vec2);
 
-	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
-	//void SetSpriteColorR(sf::Sprite& sprite, float alphaValue);
-	//void SetSpriteColorG(sf::Sprite& sprite, float alphaValue);
-	//void SetSpriteColorB(sf::Sprite& sprite, float alphaValue);
 	void MaxThrusterAlphaValue();
 	void LowerThrusterAlphaValue();
 	void ResetColor();
 
 	void SetDamage(float damage);
-	float GetHealth();
 
 	#pragma endregion
 

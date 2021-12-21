@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 #include <vector>
 
 #include "SFML/Graphics/RenderWindow.hpp"
@@ -13,7 +14,6 @@
 
 #include "character.h"
 #include "boundary.h"
-#include "object.h"
 #include "star.h"
 #include "trail.h"
 
@@ -52,19 +52,22 @@ private:
 
 	#pragma region Physical
 
-	// Physical
+	// World
 	b2Vec2 m_gravity;
 	b2World m_world;
 
-	//Boundaries
+	//Game Elements
 	std::vector<Boundary> m_boundaries;
 	std::vector<Star> m_stars;
 	int m_starsCount = 0;
-	TrailManager m_trailManager;
-	ContactListener m_contacts;
 	
 	//Character
 	Character m_character;
+	
+	//Managers
+	TrailManager m_trailManager;
+	ContactListener m_contacts;
+	
 
 #pragma endregion
 	#pragma region Graphical
@@ -77,10 +80,6 @@ private:
 	sf::Time m_deltaTime1;
 	sf::Clock m_clock2;
 	sf::Time m_deltaTime2;
-
-	sf::Clock m_scoreClock;
-	sf::Time m_scoreTime;
-	float m_score = 0;
 
 	//Music
 	sf::Music m_music;
@@ -96,16 +95,30 @@ private:
 	sf::Text m_lifeText;
 	sf::Text m_gameOverText;
 
+	//Start Screen
+	sf::Texture m_startScreenTexture;
+	sf::Sprite m_startScreenSprite;
+
 #pragma endregion
 	#pragma region GameVariables
 
 	//Higher the levelDuration is, longer and easier the game will be.
 	float m_levelDuration = 0.25f;
+	
 	//Defines the range [min - max] of the random trail scaling
 	float m_minTrailScaleValue = 1.0f;
 	float m_maxTrailScaleValue = 3.0f;
-
+	
+	//Game States
 	bool m_gameOver = false;
+	bool m_gameStarted = false;
+
+	//Score managment
+	sf::Clock m_scoreClock;
+	sf::Time m_elapsed;
+	sf::Time m_scoreTime;
+	float m_highestScore = 0;
+	float m_score = 0;
 
 #pragma endregion
 

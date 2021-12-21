@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Managers/userData.h"
-#include "object.h"
 
 class Game;
 
@@ -34,7 +33,6 @@ protected:
 	#pragma region SMFL
 
 	sf::Sprite m_sprite;
-	std::string m_spriteAdress;
 	sf::Texture m_texture;
 
 	#pragma endregion

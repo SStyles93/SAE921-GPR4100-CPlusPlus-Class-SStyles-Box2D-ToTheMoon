@@ -9,16 +9,18 @@ long Trail::m_localTrailId = 0;
 
 Trail::Trail(b2World& world, sf::Vector2f pos , float scale)
 {
-    //SET TEXTURE
+    //SET SPRITE 1 (Rock)
 	TextureManager* textureManager = TextureManager::Instance();
 	m_sprite1.setScale(sf::Vector2f(scale, scale));
 	m_sprite1.setTexture(textureManager->GetTrailTexture1());
 	m_sprite1.setOrigin(textureManager->GetTrailTexture1().getSize().x * 0.5f, textureManager->GetTrailTexture1().getSize().y * 0.5f);
     m_sprite1.setPosition(0.0f * scale, 0.0f * scale);
+    //SET SPRITE 2 (Constant Trail)
     m_sprite2.setScale(sf::Vector2f(scale, scale));
     m_sprite2.setTexture(textureManager->GetTrailTexture2());
     m_sprite2.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
     m_sprite2.setPosition(-1.66f * scale, -33.33f * scale);
+    //SET SPRITE 3 (Flashing Trail)
     m_sprite3.setScale(sf::Vector2f(scale, scale));
     m_sprite3.setTexture(textureManager->GetTrailTexture2());
     m_sprite3.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
