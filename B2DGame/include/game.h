@@ -105,7 +105,7 @@ private:
 	#pragma region GameVariables
 
 	//Higher the levelDuration is, longer and easier the game will be.
-	float m_levelDuration = 0.5f;
+	float m_levelDuration = 0.2f;
 	
 	//Defines the range [min - max] of the random trail scaling
 	float m_minTrailScaleValue = 1.0f;
